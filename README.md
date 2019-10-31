@@ -1,4 +1,13 @@
 # openpay_node
+
+
+## OPEN PAY API with mysql
+
+Run these commands first
+```javascript
+1) npm i
+2) npm run dev
+```
  
 ## Basic routes
 
@@ -13,7 +22,7 @@ POST: api/v1/customer  // INSERT INTO customers_table
 ```
 
 
-CHANGE .env FILE
+CREATE a .env FILE
 ```javascript
 MERCHANT_ID=your_merchant_id
 PRIVATE_KEY=yout_private_key
