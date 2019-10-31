@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	
+	<head>
+    <title>Formulario de client></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	</head>
+	
+	<body>
+		
+    <div class="container">
+			<h1>Formulario de cliente</h1>
+			<p></p>
+			
+			
+			
+			<form id="form_cliente" >
+				
+				<div class="row border">
+					
+					
+					<div class="col-6 btn-sucuess">
+						
+						<div class="col-6"> Nombre: <input type="text" name="nombre"  id="nombre" size="40">
+						</div>
+						
+						<div class="col-6"> RFC: <input type="text" name="rfc" id="rfc" size="40">
+						</div>
+						
+						
+						<div class="col-6"> Empresa: <input type="text" name="empresa" id="empresa" size="40">
+						</div>
+						
+						<div class="col-6"> Correo: <input type="email" name="correo" id="correo" size="40">
+						</div>
+						
+						
+						<button type="reset" class="btn btn-danger">RESETEAR</button>
+						<button type="submit" class="btn btn-warning">GUARDAR</button>
+						
+						
+						
+					</div>
+				</form>
+				
+			</div>
+			
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js" integrity="sha256-S1J4GVHHDMiirir9qsXWc8ZWw74PHHafpsHp5PXtjTs=" crossorigin="anonymous"></script>
+			
+			
+			<script>
+				$("#form_cliente").submit(guardarCliente);
+				
+				
+				
+				async function guardarCliente(ev){
+					let data = 
+					{
+						"nombre": $("#nombre").val(),
+						"rfc": $("#rfc").val(),
+						"empresa": $("#empresa").val(),
+						"correo": $("#correo").val()
+						
+					}
+					
+					
+				
+					
+					ev.preventDefault();
+					
+					const response = await axios.post("http://localhost:3000", data)
+					
+					console.log("response",response );
+						
+					
+				}
+				
+			</script>
+			
+		</body>
+		
+	</html>		
