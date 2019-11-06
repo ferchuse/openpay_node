@@ -24,7 +24,18 @@ $(document).ready(() => {
 
     const createClient = async () => {
         const { data } = await axios.post(server + '/customer', client)
-        console.log(data);
+        if (data.code === 200) {
+            $('#notice')[0].classList.add('bg-success', 'p-2', 'text-white', 'rounded', 'col-md-4');
+            $('#notice')[0].innerHTML = 'Se agrego correctamente';
+        }
+        if (data.code === 500) {
+            $('#notice')[0].classList.add('bg-danger', 'p-2', 'text-white', 'rounded', 'col-md-4');
+            $('#notice')[0].innerHTML = 'Hubo un error al procesar la información';
+        }
+        if (data.code === 404) {
+            $('#notice')[0].classList.add('bg-danger', 'p-2', 'text-white', 'rounded', 'col-md-4');
+            $('#notice')[0].innerHTML = 'No se pudo almecenar';
+        }
     }
 
 });

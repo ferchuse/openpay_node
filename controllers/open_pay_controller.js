@@ -18,10 +18,10 @@ const createCustomer = (req, res) => {
     let newCustomer = { ...req.body };
     const query = `INSERT INTO Client (name, rfc, company, email) VALUES ("${newCustomer.name}", "${newCustomer.rfc}", "${newCustomer.company}", "${newCustomer.email}")`;
 
-    connection.query(query, (err, results, fields) => {
+    connection.query(query, (err, results) => {
         if (err) return res.status(500).send({ message: `Error: ${err}` });
         if (!results) return res.status(404).send({ message: 'No hay registros', code: 404 });
-        return res.status(200).send({ code: 200, results, fields });
+        return res.status(200).send({ code: 200, results });
     })
 
 
