@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>OpenPay FORM</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Cliente</h1>
+        <div>
+            <form id="form_cliente" class="form-group col-md-5 card p-3">
+                <label for="name">Nombre cliente: </label>
+                <input class="form-control" type="text" name="name" id="name">
+                <label for="rfc">RFC: </label>
+                <input class="form-control" type="text" name="rfc" id="rfc">
+                <label for="company">Empresa: </label>
+                <input class="form-control" type="text" name="company" id="company">
+                <label for="email">Email: </label>
+                <input class="form-control" type="email" name="email" id="email">
+                <div class="row text-right col-md-12 mt-2 d-block">
+                    <button type="reset" class="btn btn-warning col-md-4">RESETEAR</button>
+                    <button type="submit" class="btn btn-primary col-md-4">GUARDAR</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"
+        integrity="sha256-S1J4GVHHDMiirir9qsXWc8ZWw74PHHafpsHp5PXtjTs=" crossorigin="anonymous">
+        </script>
+    <script src="main.js"></script>
+
+</body>
+
+</html>
