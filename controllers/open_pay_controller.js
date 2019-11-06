@@ -11,15 +11,19 @@ const index = (req, res) => {
         return res.status(200).send({ code: 200, results });
     });
 
-
 }
-
 
 const createCustomer = (req, res) => {
     const openpay = new Openpay(process.env.MERCHANT_ID, process.env.PRIVATE_KEY);
     let newCustomer = { ...req.body };
+    const query = `INSERT INTO Client (name, rfc, company, email) VALUES ("${newCustomer.name}", "${newCustomer.rfc}", "${newCustomer.company}", "${newCustomer.email}")`;
 
-    // INSERT INTO customer newCustomer
+    connection.query(query, (err, results, fields) => {
+        if (err) return res.status(500).send({ message: `Error: ${err}` });
+        if (!results) return res.status(404).send({ message: 'No hay registros', code: 404 });
+        return res.status(200).send({ code: 200, results, fields });
+    })
+
 
     //openpay.customers.create(newCustomer, function(err, body) {
     // error;    // null if no error occurred (status code != 200||201||204)

@@ -19,11 +19,11 @@ $(document).ready(() => {
             "company": $("#company").val(),
             "email": $("#email").val()
         }
-        sendData();
+        createClient();
     }
 
-    const sendData = async () => {
-        const { data } = await axios.post(server, client)
+    const createClient = async () => {
+        const { data } = await axios.post(server + '/customer', client)
         console.log(data);
     }
 
